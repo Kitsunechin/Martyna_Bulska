@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/animated-section";
 import PortfolioNav from "@/components/portfolio-nav";
-import { ArrowRight, Download, MapPin, Mail, Phone, Linkedin } from "lucide-react";
+import { ArrowRight, MapPin, Mail, Phone, Linkedin } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 
@@ -329,21 +329,6 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  <motion.div
-                    className="mt-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    <a
-                      href="/Martyna_Bulska_CV.pdf"
-                      download="Martyna_Bulska_CV.pdf"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary/20 transition-colors"
-                    >
-                      <Download className="w-4 h-4" />
-                      Download CV
-                    </a>
-                  </motion.div>
                 </motion.div>
 
                 {/* Right side - Professional Summary */}
