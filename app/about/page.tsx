@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/animated-section";
 import PortfolioNav from "@/components/portfolio-nav";
-import { ArrowRight, Download, MapPin, Mail, Phone } from "lucide-react";
+import { ArrowRight, Download, MapPin, Mail, Phone, Linkedin } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 
@@ -20,6 +20,7 @@ const PROFESSIONAL_SUMMARY = {
   contact: {
     email: "martyna.bulska@gmail.com",
     phone: "+48 604510172",
+    linkedin: "linkedin.com/in/martynabulska",
     location: "Poznan, Poland"
   }
 };
@@ -314,6 +315,17 @@ export default function AboutPage() {
                     <div className="flex items-center gap-3 text-sm text-muted-foreground justify-center lg:justify-start">
                       <Phone className="w-4 h-4" />
                       {PROFESSIONAL_SUMMARY.contact.phone}
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground justify-center lg:justify-start">
+                      <Linkedin className="w-4 h-4" />
+                      <a
+                        href={`https://${PROFESSIONAL_SUMMARY.contact.linkedin}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                      >
+                        {PROFESSIONAL_SUMMARY.contact.linkedin}
+                      </a>
                     </div>
                   </div>
 
