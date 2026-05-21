@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Custom animation durations for orbital timeline */
+  .duration-1000 {
+    transition-duration: 1000ms;
+  }
+
+  /* Radial gradient for orbital center shader effect */
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 93%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 168 45% 50%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 80%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 168 45% 50%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 168 45% 50%;
+    --chart-1: 168 45% 50%;
+    --chart-2: 168 35% 40%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 168 25% 60%;
+    --chart-5: 0 0% 70%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 168 45% 50%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 168 45% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background-color: hsl(168 45% 50% / 0.3);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
