@@ -24,6 +24,30 @@ interface CardProps {
   targetScale: number;
 }
 
+// Helper function to get project URL
+const getProjectUrl = (title: string) => {
+  switch (title) {
+    case "Guided tour":
+      return "/projects/guided-tour";
+    case "Introducing AI recruiter Clara":
+      return "/projects/clara";
+    case "Productivity and fill rate":
+      return "/projects/productivity";
+    case "Shift satisfaction":
+      return "/projects/shift-satisfaction";
+    case "Gamification":
+      return "/projects/gamification";
+    case "Requesting time off":
+      return "/projects/time-off";
+    case "Web redesign":
+      return "/projects/web-redesign";
+    case "Revamping internal management system":
+      return "/projects/humadroid";
+    default:
+      return "#";
+  }
+};
+
 export const Card = ({
   i,
   title,
@@ -44,6 +68,7 @@ export const Card = ({
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
+  const projectUrl = getProjectUrl(title);
 
   useEffect(() => {
     setIsClient(true);
@@ -55,35 +80,22 @@ export const Card = ({
         ref={container}
         className='h-screen flex items-center justify-center sticky top-0'
       >
-        <div
-          className={`flex flex-col relative -top-[25%] h-auto md:h-[450px] w-[95%] md:w-[70%] rounded-2xl p-4 md:p-8 lg:p-12 origin-top bg-card border border-border backdrop-blur-sm`}
-          style={{ top: `calc(-5vh + ${i * 25}px)` }}
+        <a
+          href={projectUrl}
+          target="_self"
+          className="block w-[95%] md:w-[70%] cursor-pointer group"
         >
+          <div
+            className={`flex flex-col relative -top-[25%] h-auto md:h-[450px] w-full rounded-2xl p-4 md:p-8 lg:p-12 origin-top bg-card border border-border backdrop-blur-sm hover:border-primary/20 transition-colors`}
+            style={{ top: `calc(-5vh + ${i * 25}px)` }}
+          >
           {/* Mobile Layout: Vertical Stack */}
           <div className={`flex flex-col md:hidden h-full mt-4 gap-4`}>
             {/* Image Section - Mobile */}
             <div className={`relative w-full h-[200px] rounded-lg overflow-hidden`}>
-              <a
-                href={
-                  title === "Guided tour" ? "/projects/guided-tour" :
-                  title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                  title === "Productivity and fill rate" ? "/projects/productivity" :
-                  title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                  title === "Gamification" ? "/projects/gamification" :
-                  title === "Requesting time off" ? "/projects/time-off" :
-                  title === "Web redesign" ? "/projects/web-redesign" :
-                  title === "Revamping internal management system" ? "/projects/humadroid" :
-                  '#'
-                }
-                target={
-                  title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Gamification" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-                }
-                className="block w-full h-full cursor-pointer"
-              >
-                <div className={`w-full h-full`}>
-                  <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
-                </div>
-              </a>
+              <div className={`w-full h-full`}>
+                <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' />
+              </div>
             </div>
 
             {/* Content Section - Mobile */}
@@ -102,26 +114,9 @@ export const Card = ({
                   ))}
                 </div>
               )}
-              <span className='flex items-center gap-2 pt-2 min-h-[44px]'>
-                <a
-                  href={
-                    title === "Guided tour" ? "/projects/guided-tour" :
-                    title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                    title === "Productivity and fill rate" ? "/projects/productivity" :
-                    title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                    title === "Requesting time off" ? "/projects/time-off" :
-                    title === "Web redesign" ? "/projects/web-redesign" :
-                    title === "Revamping internal management system" ? "/projects/humadroid" :
-                    '#'
-                  }
-                  target={
-                    title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-                  }
-                  className='inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors py-2'
-                >
-                  View project
-                </a>
-                <ArrowRight className="w-4 h-4 text-primary" />
+              <span className='flex items-center gap-2 pt-2 min-h-[44px] text-primary'>
+                <span className='text-sm font-medium'>View project</span>
+                <ArrowRight className="w-4 h-4" />
               </span>
             </div>
           </div>
@@ -143,53 +138,19 @@ export const Card = ({
                   ))}
                 </div>
               )}
-              <span className='flex items-center gap-2 pt-2'>
-                <a
-                  href={
-                    title === "Guided tour" ? "/projects/guided-tour" :
-                    title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                    title === "Productivity and fill rate" ? "/projects/productivity" :
-                    title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                    title === "Requesting time off" ? "/projects/time-off" :
-                    title === "Web redesign" ? "/projects/web-redesign" :
-                    title === "Revamping internal management system" ? "/projects/humadroid" :
-                    '#'
-                  }
-                  target={
-                    title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-                  }
-                  className='inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors'
-                >
-                  View project
-                </a>
-                <ArrowRight className="w-4 h-4 text-primary" />
+              <span className='flex items-center gap-2 pt-2 text-primary'>
+                <span className='text-sm font-medium'>View project</span>
+                <ArrowRight className="w-4 h-4" />
               </span>
             </div>
             <div className={`relative w-[60%] h-full rounded-lg overflow-hidden `}>
-              <a
-                href={
-                  title === "Guided tour" ? "/projects/guided-tour" :
-                  title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                  title === "Productivity and fill rate" ? "/projects/productivity" :
-                  title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                  title === "Gamification" ? "/projects/gamification" :
-                  title === "Requesting time off" ? "/projects/time-off" :
-                  title === "Web redesign" ? "/projects/web-redesign" :
-                  title === "Revamping internal management system" ? "/projects/humadroid" :
-                  '#'
-                }
-                target={
-                  title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Gamification" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-                }
-                className="block w-full h-full cursor-pointer"
-              >
-                <div className={`w-full h-full`}>
-                  <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
-                </div>
-              </a>
+              <div className={`w-full h-full`}>
+                <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' />
+              </div>
             </div>
           </div>
-        </div>
+          </div>
+        </a>
       </div>
     );
   }
@@ -199,41 +160,28 @@ export const Card = ({
       ref={container}
       className='h-screen flex items-center justify-center sticky top-0'
     >
-      <motion.div
-        style={{
-          scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-        }}
-        className={`flex flex-col relative -top-[25%] h-auto md:h-[450px] w-[95%] md:w-[70%] rounded-2xl p-4 md:p-8 lg:p-12 origin-top bg-card border border-border backdrop-blur-sm`}
+      <a
+        href={projectUrl}
+        target="_self"
+        className="block w-[95%] md:w-[70%] cursor-pointer group"
       >
+        <motion.div
+          style={{
+            scale,
+            top: `calc(-5vh + ${i * 25}px)`,
+          }}
+          className={`flex flex-col relative -top-[25%] h-auto md:h-[450px] w-full rounded-2xl p-4 md:p-8 lg:p-12 origin-top bg-card border border-border backdrop-blur-sm hover:border-primary/20 transition-colors`}
+        >
         {/* Mobile Layout: Vertical Stack */}
         <div className={`flex flex-col md:hidden h-full mt-4 gap-4`}>
           {/* Image Section - Mobile */}
           <div className={`relative w-full h-[200px] rounded-lg overflow-hidden`}>
-            <a
-              href={
-                title === "Guided tour" ? "/projects/guided-tour" :
-                title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                title === "Productivity and fill rate" ? "/projects/productivity" :
-                title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                title === "Gamification" ? "/projects/gamification" :
-                title === "Requesting time off" ? "/projects/time-off" :
-                title === "Web redesign" ? "/projects/web-redesign" :
-                title === "Revamping internal management system" ? "/projects/humadroid" :
-                '#'
-              }
-              target={
-                title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Gamification" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-              }
-              className="block w-full h-full cursor-pointer"
+            <motion.div
+              className={`w-full h-full`}
+              style={{ scale: imageScale }}
             >
-              <motion.div
-                className={`w-full h-full`}
-                style={{ scale: imageScale }}
-              >
-                <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
-              </motion.div>
-            </a>
+              <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' />
+            </motion.div>
           </div>
 
           {/* Content Section - Mobile */}
@@ -252,26 +200,9 @@ export const Card = ({
                 ))}
               </div>
             )}
-            <span className='flex items-center gap-2 pt-2 min-h-[44px]'>
-              <a
-                href={
-                  title === "Guided tour" ? "/projects/guided-tour" :
-                  title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                  title === "Productivity and fill rate" ? "/projects/productivity" :
-                  title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                  title === "Requesting time off" ? "/projects/time-off" :
-                  title === "Web redesign" ? "/projects/web-redesign" :
-                  title === "Revamping internal management system" ? "/projects/humadroid" :
-                  '#'
-                }
-                target={
-                  title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-                }
-                className='inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors py-2'
-              >
-                View project
-              </a>
-              <ArrowRight className="w-4 h-4 text-primary" />
+            <span className='flex items-center gap-2 pt-2 min-h-[44px] text-primary'>
+              <span className='text-sm font-medium'>View project</span>
+              <ArrowRight className="w-4 h-4" />
             </span>
           </div>
         </div>
@@ -296,59 +227,25 @@ export const Card = ({
               </div>
             )}
 
-            <span className='flex items-center gap-2 pt-2'>
-              <a
-                href={
-                  title === "Guided tour" ? "/projects/guided-tour" :
-                  title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                  title === "Productivity and fill rate" ? "/projects/productivity" :
-                  title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                  title === "Gamification" ? "/projects/gamification" :
-                  title === "Requesting time off" ? "/projects/time-off" :
-                  title === "Web redesign" ? "/projects/web-redesign" :
-                  title === "Revamping internal management system" ? "/projects/humadroid" :
-                  '#'
-                }
-                target={
-                  title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Gamification" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-                }
-                className='inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors'
-              >
-                View project
-              </a>
-              <ArrowRight className="w-4 h-4 text-primary" />
+            <span className='flex items-center gap-2 pt-2 text-primary'>
+              <span className='text-sm font-medium'>View project</span>
+              <ArrowRight className="w-4 h-4" />
             </span>
           </div>
 
           <div
             className={`relative w-[60%] h-full rounded-lg overflow-hidden `}
           >
-            <a
-              href={
-                title === "Guided tour" ? "/projects/guided-tour" :
-                title === "Introducing AI recruiter Clara" ? "/projects/clara" :
-                title === "Productivity and fill rate" ? "/projects/productivity" :
-                title === "Shift satisfaction" ? "/projects/shift-satisfaction" :
-                title === "Requesting time off" ? "/projects/time-off" :
-                title === "Web redesign" ? "/projects/web-redesign" :
-                title === "Revamping internal management system" ? "/projects/humadroid" :
-                '#'
-              }
-              target={
-                title === "Guided tour" || title === "Introducing AI recruiter Clara" || title === "Productivity and fill rate" || title === "Shift satisfaction" || title === "Requesting time off" || title === "Web redesign" || title === "Revamping internal management system" ? '_self' : '_blank'
-              }
-              className="block w-full h-full cursor-pointer"
+            <motion.div
+              className={`w-full h-full`}
+              style={{ scale: imageScale }}
             >
-              <motion.div
-                className={`w-full h-full`}
-                style={{ scale: imageScale }}
-              >
-                <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
-              </motion.div>
-            </a>
+              <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' />
+            </motion.div>
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </a>
     </div>
   );
 };
