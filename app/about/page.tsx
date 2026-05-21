@@ -89,7 +89,7 @@ const CAREER_TIMELINE = [
     location: "Poznan, Poland",
     roles: [
       {
-        title: "Product Designer",
+        title: "UX/UI Designer",
         period: "November 2021 - July 2022",
         current: false
       }
