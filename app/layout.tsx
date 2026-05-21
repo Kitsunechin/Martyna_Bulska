@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
+import { ThemeProvider } from "@/components/theme-provider";
 import BackgroundShader from "@/components/background-shader";
 import ClientOnlyComponents from "@/components/client-only-components";
 
@@ -35,10 +36,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${_inter.variable} ${_spaceGrotesk.variable}`}>
       <body className="font-sans antialiased">
-        <BackgroundShader />
-        <ClientOnlyComponents />
-        {children}
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <BackgroundShader />
+          <ClientOnlyComponents />
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

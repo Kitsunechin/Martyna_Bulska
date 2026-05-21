@@ -71,13 +71,8 @@ const CAREER_TIMELINE = [
     roles: [
       {
         title: "Product Designer",
-        period: "September 2024 - Present",
+        period: "June 2022 - Present",
         current: true
-      },
-      {
-        title: "Junior Product Designer",
-        period: "June 2022 - September 2024",
-        current: false
       }
     ],
     description: "Two-sided workforce marketplace — B2B operator platform and worker-facing consumer app, serving 350,000+ users for enterprise clients including DHL, UPS, and Cabify across 10 countries.",
@@ -94,7 +89,7 @@ const CAREER_TIMELINE = [
     location: "Poznan, Poland",
     roles: [
       {
-        title: "Junior Product Designer",
+        title: "Product Designer",
         period: "November 2021 - July 2022",
         current: false
       }

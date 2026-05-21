@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "@/components/animated-section";
 import PortfolioNav from "@/components/portfolio-nav";
 import StackingCard from "@/components/ui/stacking-card";
+import ThemeToggle from "@/components/theme-toggle";
 import { ArrowRight } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
@@ -213,6 +214,11 @@ export default function HomePage() {
           <section id="home" className="relative py-16 md:py-32 scroll-mt-24 overflow-hidden">
             {/* Background pattern - same as guided tour */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+            {/* Theme Toggle */}
+            <div className="absolute top-4 right-4 z-20">
+              <ThemeToggle />
+            </div>
 
             <div className="relative z-10">
               <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start">
