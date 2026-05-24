@@ -414,7 +414,7 @@ export default function ClaraContent() {
               Interact with the live prototype to see the design in action:
             </p>
             <a
-              href="https://v0.app/chat/ai-recruiter-prototype-jnlJpE94VgB?f=1&b=b_EJBOnob652q"
+              href="https://v0.app/chat/ai-recruiter-prototype-jnlJpE94VgB?b=b_Lg77avBqjo0&path=%2F&ref=Z5MYBR&f=1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
