@@ -198,24 +198,30 @@ export default function CaseStudyContent() {
           description="As the app was introduced to more locations, engagement metrics revealed a significant disparity."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <StatCard
             value="83%"
-            label="With J&T support"
+            label="Shift response (with support)"
             description="Workers responding to shifts at sites with dedicated J&T representatives providing on-site onboarding."
             delay={0}
           />
           <StatCard
             value="73%"
-            label="Without support"
+            label="Shift response (without support)"
             description="Workers responding to shifts at sites without J&T support, relying solely on the app experience."
             delay={0.1}
           />
           <StatCard
-            value="10%"
-            label="Engagement gap"
-            description="The critical disparity that highlighted the need for an effective in-app onboarding solution."
+            value="90%"
+            label="Clocking rate (with support)"
+            description="Workers clocking in on time at sites with dedicated J&T representatives providing guidance."
             delay={0.2}
+          />
+          <StatCard
+            value="84%"
+            label="Clocking rate (without support)"
+            description="Workers clocking in on time at sites without J&T support, showing baseline performance."
+            delay={0.3}
           />
         </div>
 
@@ -410,7 +416,7 @@ export default function CaseStudyContent() {
           description="The guided tour delivered measurable improvements in both conversion and engagement across all sites."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <StatCard
             value="60% to 90%"
             label="Conversion rate"
@@ -422,6 +428,12 @@ export default function CaseStudyContent() {
             label="Shift response rate"
             description="For sites lacking J&T support, the response rate to assigned shifts increased to a steady 80%."
             delay={0.1}
+          />
+          <StatCard
+            value="84% to 93%"
+            label="Clocking rate"
+            description="Significant improvement in time tracking performance as workers became more proficient with the app's features."
+            delay={0.2}
           />
         </div>
 
@@ -436,15 +448,15 @@ export default function CaseStudyContent() {
             delay={0}
           />
           <MetricBar
-            label="Shift response (unsupported sites)"
+            label="Shift response rate"
             before={73}
             after={80}
             delay={0.2}
           />
           <MetricBar
-            label="Shift response (supported sites)"
-            before={83}
-            after={88}
+            label="Clocking rate"
+            before={84}
+            after={93}
             delay={0.4}
           />
         </div>
