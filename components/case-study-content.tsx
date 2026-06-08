@@ -430,7 +430,7 @@ export default function CaseStudyContent() {
             delay={0.1}
           />
           <StatCard
-            value="84% to 93%"
+            value="81% to 93%"
             label="Clocking rate"
             description="Significant improvement in time tracking performance as workers became more proficient with the app's features."
             delay={0.2}
