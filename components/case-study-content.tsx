@@ -194,7 +194,7 @@ export default function CaseStudyContent() {
       <section className="px-6 md:px-16 lg:px-24 py-12 md:py-16">
         <SectionHeader
           label="02 / The Challenge"
-          title="A 10% engagement gap between supported and unsupported sites"
+          title="A 10% and 9% gap between supported and unsupported sites"
           description="As the app was introduced to more locations, engagement metrics revealed a significant disparity."
         />
 
@@ -218,7 +218,7 @@ export default function CaseStudyContent() {
             delay={0.2}
           />
           <StatCard
-            value="84%"
+            value="81%"
             label="Clocking rate (without support)"
             description="Workers clocking in on time at sites without J&T support, showing baseline performance."
             delay={0.3}
@@ -455,7 +455,7 @@ export default function CaseStudyContent() {
           />
           <MetricBar
             label="Clocking rate"
-            before={84}
+            before={81}
             after={93}
             delay={0.4}
           />
